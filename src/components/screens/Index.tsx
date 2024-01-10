@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Head } from '~/components/shared/Head';
-import { useFirestore } from '~/lib/firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import Situation from '../interface/Situation';
 
@@ -15,7 +14,6 @@ type Product = {
 
 function Index() {
   const [products, setProducts] = useState<Array<Product>>([]);
-  const firestore = useFirestore();
 
   useEffect(() => {
     const dbRef = ref(getDatabase());
