@@ -3,6 +3,7 @@ import { Head } from '~/components/shared/Head';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import Situation from '../interface/Situation';
 import Dropdown from '../interface/Dropdown';
+import CustomButton from '../interface/CustomButton';
 
 type Product = {
   id: string;
@@ -39,19 +40,16 @@ function Index() {
         <input className="border px-4 py-2" type="text" placeholder="Product name" />
         <Dropdown label="Situation" />
         <Dropdown label="Order by" />
-        <button className="bg-slate-500 px-4 py-2 text-white hover:bg-slate-700 rounded-lg transition">Filter</button>
+        <CustomButton content="Filter" type="filter" />
       </div>
 
       {/* Buttons */}
       <div className="flex justify-between gap-4 px-80 mt-8">
-        <button className="bg-green-800 px-4 py-2 text-white hover:bg-green-950 rounded-lg transition">
-          New Product
-        </button>
-        <button className="bg-red-700 px-4 py-2 text-white hover:bg-red-900 rounded-lg transition">Delete</button>
+        <CustomButton content="Add Product" type="create" />
+        <CustomButton content="Delete" type="delete" />
       </div>
 
       {/* Table */}
-
       <div className="flex justify-between gap-4 px-80 mt-8">
         <table className="border w-[100%]">
           <thead className="bg-gray-400 text-white">
