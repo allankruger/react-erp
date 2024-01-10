@@ -15,6 +15,7 @@ export const setupFirebase = () => {
       storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
       messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
       appId: import.meta.env.VITE_FIREBASE_APPID,
+      databaseURL: import.meta.env.VITE_DATABASE_URL,
     });
   } catch (error) {
     console.error({ error });
