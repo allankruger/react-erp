@@ -1,8 +1,8 @@
-type StatusCircleProps = {
+type SituationProps = {
   content: string;
 };
 
-function StatusCircle(props: StatusCircleProps) {
+function Situation(props: SituationProps) {
   const { content } = props;
 
   return (
@@ -19,4 +19,4 @@ function StatusCircle(props: StatusCircleProps) {
   );
 }
 
-export default StatusCircle;
+export default Situation;

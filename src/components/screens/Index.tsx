@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Head } from '~/components/shared/Head';
 import { useFirestore } from '~/lib/firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
-import Pill from '../interface/Situation';
+import Situation from '../interface/Situation';
 
 type Product = {
   id: string;
@@ -84,7 +84,7 @@ function Index() {
                   <td className="border p-2 text-center w-[50%]">{product.name}</td>
                   <td className="border p-2 text-center">$ {product.price}</td>
                   <td className="border p-2 text-center w-[15%]">
-                    <Pill content={product.situation} />
+                    <Situation content={product.situation} />
                   </td>
                 </tr>
               );
