@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Head } from '~/components/shared/Head';
 import { useFirestore } from '~/lib/firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
+import Pill from '../interface/Situation';
 
 type Product = {
   id: string;
@@ -62,7 +63,7 @@ function Index() {
 
       <div className="flex justify-between gap-4 px-80 mt-8">
         <table className="border w-[100%]">
-          <thead>
+          <thead className="bg-gray-400 text-white">
             <tr>
               <th className="border p-3 w-0 text-center">
                 <input type="checkbox" name="selectAll" id="selectAll" />
@@ -73,20 +74,22 @@ function Index() {
             </tr>
           </thead>
 
-          {products.map((product) => {
-            return (
-              <tbody key={product.id}>
-                <tr>
+          <tbody className="[&>*:nth-child(odd)]:bg-gray-200">
+            {products.map((product) => {
+              return (
+                <tr key={product.id}>
                   <td className="border p-2 w-0 text-center">
                     <input type="checkbox" name="shirt" id="shirt" />
                   </td>
                   <td className="border p-2 text-center w-[50%]">{product.name}</td>
-                  <td className="border p-2 text-center">{product.price}</td>
-                  <td className="border p-2 text-center w-[15%]">{product.situation}</td>
+                  <td className="border p-2 text-center">$ {product.price}</td>
+                  <td className="border p-2 text-center w-[15%]">
+                    <Pill content={product.situation} />
+                  </td>
                 </tr>
-              </tbody>
-            );
-          })}
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </>
