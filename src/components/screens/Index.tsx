@@ -34,7 +34,8 @@ function Index() {
 
   return (
     <>
-      <Head title="TOP PAGE" />
+      <Head title="React ERP" />
+
       {/* Header */}
       <div className="flex gap-4 px-80 mt-8">
         <input className="border px-4 py-2" type="text" placeholder="Product name" />
