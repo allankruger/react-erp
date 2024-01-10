@@ -38,7 +38,13 @@ function Index() {
 
       {/* Header */}
       <div className="flex gap-4 px-80 mt-8">
-        <input className="border px-4 py-2" type="text" placeholder="Product name" />
+        <input
+          className="border px-4 py-2"
+          type="text"
+          placeholder="Product name"
+          name="productName"
+          id="productName"
+        />
         <Dropdown label="Situation" />
         <Dropdown label="Order by" />
         <CustomButton content="Filter" type="filter" />
