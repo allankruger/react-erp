@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Head } from '~/components/shared/Head';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import Situation from '../interface/Situation';
+import Dropdown from '../interface/Dropdown';
 
 type Product = {
   id: string;
@@ -36,16 +37,8 @@ function Index() {
       {/* Header */}
       <div className="flex gap-4 px-80 mt-8">
         <input className="border px-4 py-2" type="text" placeholder="Product name" />
-        <label htmlFor="situation">Situation</label>
-        <select className="border px-4 py-2" name="situation" id="situation">
-          <option value="all">All</option>
-        </select>
-        <label htmlFor="orderBy">Order By</label>
-        <select className="border px-4 py-2" name="orderBy" id="orderBy">
-          <option value="name">Name</option>
-          <option value="createdAt">Creation Date</option>
-          <option value="price">Price</option>
-        </select>
+        <Dropdown label="Situation" />
+        <Dropdown label="Order by" />
         <button className="bg-slate-500 px-4 py-2 text-white hover:bg-slate-700 rounded-lg transition">Filter</button>
       </div>
 
@@ -77,7 +70,7 @@ function Index() {
               return (
                 <tr key={product.id}>
                   <td className="border p-2 w-0 text-center">
-                    <input type="checkbox" name="shirt" id="shirt" />
+                    <input type="checkbox" name={product.name} id={product.name} />
                   </td>
                   <td className="border p-2 text-center w-[50%]">{product.name}</td>
                   <td className="border p-2 text-center">$ {product.price}</td>
